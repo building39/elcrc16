@@ -11,7 +11,12 @@ defmodule Elcrc16 do
   Initilizes the module by loading NIFs
   """
   def init do
-    path = :filename.join(:code.priv_dir(:elcrc16), 'crc16_nif')
+    # Hack to make this work in escripts.
+    path = try do
+             :filename.join(:code.priv_dir(:elcrc16), 'crc16_nif')
+           rescue
+             FunctionClauseError -> System.get_env("CRC16_NIF_PATH") <> "crc16_nif"
+           end
     :ok = :erlang.load_nif(path, 0)
   end
 
