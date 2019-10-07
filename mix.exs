@@ -1,5 +1,4 @@
 defmodule Mix.Tasks.Compile.Elcrc16 do
-  @shortdoc "Compiles CRC"
 
   def run(_) do
     File.mkdir("priv")
@@ -126,7 +125,7 @@ defmodule Elcrc16.Mixfile do
       files: ["lib", "src", "mix.exs", "Makefile*", "README.md", "LICENSE"],
       maintainers: ["Michael Martin"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/building39/elcrc16"}
+      links: %{"GitHub" => "git://github.com/building39/elcrc16"}
     ]
   end
 
